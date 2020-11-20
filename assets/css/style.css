@@ -1,0 +1,65 @@
+
+html, body{
+    min-width: 576px;
+}
+
+.calculator {
+    height: 600px;
+    width: 100%;
+}
+
+.display{
+    font-family: 'VT323', monospace;
+    text-shadow: 0 0 10px #0275d8;
+    font-size: 35px;
+    height: 20%;
+}
+
+.keypad .btn{
+    height: 18%;
+    width: 92%;
+}
+
+.keypad .btn p{
+    margin-bottom: 0px;
+}
+
+.keypad button{
+    margin-top: 6px;
+}
+
+.zeroBTN{
+    position: relative;
+    z-index: 10;
+    margin-top: -105px;
+    margin-left: 8px;
+    width: 58.5%;
+}
+
+.zeroBTN button{
+    width: 80.5%;
+    height: 73px;
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary{
+    color: #fff !important;
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+
+.btn-dark:hover, .btn-dark:focus, .btn-dark:active, .btn-dark.active, .open>.dropdown-toggle.btn-dark{
+    color: #fff !important;
+    background-color: #343a40 !important;
+    border-color: #343a40 !important;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open>.dropdown-toggle.btn-danger{
+    color: #fff !important;
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: none!important;
+}
