@@ -6,10 +6,13 @@ isOperator = (x) => { return operators.includes(x); }
 
 function parse(x){
 
+    // The number of input characters is limited to fit within the width of the display
     if(buffer.length > 18) return;
+
 
     /* First Number */
 
+    // Only the minus symbol can be added before any numbers are in the buffer
     if(buffer.length === 0 && x === '-'){
         buffer.push(x);
         showBuffer(buffer.join(''));
@@ -18,15 +21,18 @@ function parse(x){
         return;
     }
 
+    // Condition to stop 00 ... 0 from being displayed
     if(buffer.length === 1 && buffer[0] === 0 && x === 0){
         return;
     }
-
+    
+    // Condition to stop '-*' , '-+' or '-/' from being displayed
     if(buffer.length === 1 && buffer[0] === '-' && isOperator(x)){
         clearBuffer();
         return;
     }
 
+    // Implementation of decimal points
     if(x === '.'){
         if(buffer.includes(x)){
             if(!buffer.slice(1).includes('+') && !buffer.slice(1).includes('*') && !buffer.slice(1).includes('/')){
@@ -102,6 +108,7 @@ function addDecimal(num, index) {
     return num.substring(0,index) + '.' + num.substring(index+1);
 }
 
+// Calculating the result from a buffer of form ^\[-?,[\d,]*,[\+,\-,\*\/],-?[\d,]*\]$
 function calculateResult(){
 
     let num1 = 0;
@@ -162,13 +169,7 @@ function calculateResult(){
         num2 = addDecimal(num2, decimal2);
         num2 = parseFloat(num2);
     }
-    /*
-    console.log(num1_negative);
-    console.log(num1);
-    console.log(operator);
-    console.log(num2_negative);
-    console.log(num2);
-    */
+ 
     num1 = num1_negative ? -1*num1 : num1;
     num2 = num2_negative ? -1*num2 : num2;
 
